@@ -7,9 +7,9 @@ const WebpackNotifierPlugin = require('webpack-notifier');
 
 module.exports = {
     mode: 'development',
-    context: path.resolve(__dirname, './src'),
+    context: path.resolve(__dirname, './'),
     entry: {
-        app: './app',
+        app: './main',
     },
     output: {
         filename: '[name].[hash].js',
@@ -28,7 +28,7 @@ module.exports = {
     resolve: {
         extensions: [".tsx", ".ts", ".json", ".js"],
         modules: [
-            path.resolve(__dirname, './src'),
+            path.resolve(__dirname, './example'),
             'node_modules'
         ]
     },

@@ -7,7 +7,12 @@
     "jsRules": {},
     "rules": {
         "quotemark": [true, "single"],
-        "ordered-imports": false
+        "ordered-imports": false,
+        "member-access": [true, "check-accessor", "check-parameter-property"],
+        "arrow-parens": false,
+        "interface-over-type-literal": false,
+        "object-literal-sort-keys": false,
+        "jsx-no-lambda": false
     },
     "rulesDirectory": []
 }

@@ -5,7 +5,7 @@
     "module": "commonjs",
     "target": "es5",
     "jsx": "react",
-    "baseUrl": "./src",
+    "baseUrl": "example",
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true
