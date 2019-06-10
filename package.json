@@ -1,10 +1,13 @@
 {
-  "name": "whitespectre",
-  "version": "1.0.0",
-  "main": "index.js",
+  "name": "rx-react",
+  "version": "0.0.1",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "license": "MIT",
   "scripts": {
-    "start": "webpack-dev-server --config ./example/webpack.config.js"
+    "start": "webpack-dev-server --config ./example/webpack.config.js",
+    "build": "tsc",
+    "prepublish": "yarn build"
   },
   "devDependencies": {
     "@types/react": "^16.8.19",
