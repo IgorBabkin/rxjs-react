@@ -1,1 +1,1 @@
-# RxReact
+# RxjsReact
