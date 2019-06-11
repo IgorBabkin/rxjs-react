@@ -66,6 +66,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: './index.html.ejs',
             inject: 'body',
+            favicon: './assets/favicon.jpeg'
         }),
         new HotModuleReplacementPlugin(),
         new CopyWebpackPlugin([
