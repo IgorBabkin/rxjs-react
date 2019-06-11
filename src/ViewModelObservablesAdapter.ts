@@ -11,12 +11,14 @@ export class ViewModelObservablesAdapter<T> {
         const fields = metadata.observableFields;
         const observables = fields
             .map((key: string) => {
+                // @ts-ignore
                 return model[key] as Observable<any>;
             });
 
         this.fields$ = combineLatest(...observables).pipe(
             map((values) => {
                 return observableFields.reduce((acc, value, index) => {
+                    // @ts-ignore
                     acc[value] = values[index];
                     return acc;
                 }, {}) as UnPackedProperties<T, Observable<any>>;

@@ -7,7 +7,8 @@ export class ViewModelActionsAdapter<T> {
     constructor(model: T, metadata: ViewMetadata<T>) {
         const fields = metadata.actionFields;
         this.actions = fields.reduce((acc, value) => {
-            acc[value] = model[value].bind(model);
+            // @ts-ignore
+            acc[value] = (model[value]).bind(model);
             return acc;
         }, {});
     }

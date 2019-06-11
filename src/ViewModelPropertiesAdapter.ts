@@ -12,6 +12,7 @@ export class ViewModelPropertiesAdapter<T> {
 
     public get props(): IDictionary<any> {
         return this.fields.reduce((acc, value) => {
+            // @ts-ignore
             acc[value] = this.model[value];
             return acc;
         }, {});

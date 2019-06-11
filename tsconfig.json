@@ -1,7 +1,9 @@
 {
   "compilerOptions": {
-    "outDir": "dist",
     "lib": ["es2017", "dom"],
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "noImplicitReturns": true,
     "declaration": true,
     "sourceMap": true,
     "module": "commonjs",
@@ -12,9 +14,6 @@
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true
   },
-  "include": [
-    "./src"
-  ],
   "exclude": [
     "node_modules"
   ]
