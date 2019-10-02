@@ -1,6 +1,6 @@
 {
   "name": "reactivex-react",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "license": "MIT",
@@ -10,7 +10,7 @@
     "lint": "tslint -c tslint.json src/**/*.{ts,tsx}",
     "test": "jest ./src",
     "release": "standard-version",
-    "publish": "yarn release && npm publish --access publish"
+    "publish": "yarn release -- && npm publish --access publish"
   },
   "devDependencies": {
     "@types/gulp": "^4.0.6",
