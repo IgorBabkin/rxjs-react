@@ -8,7 +8,9 @@
     "start": "webpack-dev-server --config ./example/webpack.config.js",
     "build": "gulp build",
     "lint": "tslint -c tslint.json src/**/*.{ts,tsx}",
-    "test": "jest ./src"
+    "test": "jest ./src",
+    "release": "standard-version",
+    "publish": "yarn release && npm publish --access publish"
   },
   "devDependencies": {
     "@types/gulp": "^4.0.6",
@@ -26,6 +28,7 @@
     "node-sass": "^4.10.0",
     "sass-loader": "^7.1.0",
     "source-map-loader": "^0.2.1",
+    "standard-version": "^7.0.0",
     "style-loader": "^0.23.1",
     "ts-jest": "^24.0.2",
     "ts-node": "^8.2.0",
