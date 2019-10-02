@@ -1,2 +1,3 @@
 export {observable, property, action} from './core';
-export {IView, observer} from './observer';
+export {observer} from './observer';
+export {IView} from './core.interface';

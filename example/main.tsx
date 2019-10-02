@@ -1,6 +1,6 @@
-import { AppView } from './AppView';
 import * as React from 'react';
 import { render } from 'react-dom';
+import { AppView } from './AppView';
 import { AppViewModel } from './AppViewModel';
 
 const model = new AppViewModel();

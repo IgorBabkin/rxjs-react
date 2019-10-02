@@ -1,4 +1,4 @@
-import { OperatorFunction, Observable } from 'rxjs';
+import { OperatorFunction, Observable, Observer } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 type Options<TInput, TOutput> = {
@@ -11,7 +11,7 @@ type Options<TInput, TOutput> = {
 export const transformArray = <TInput, TOutput>(props: Options<TInput, TOutput>): OperatorFunction<TInput[], TOutput[]> => {
     const {create, update, remove, idFn} = props;
     return (source) => {
-        return Observable.create(subscriber => {
+        return Observable.create((subscriber: Observer<any>) => {
             const models = new Map<TInput, TOutput>();
             const subscription = source.pipe(
                 map((b) => {
