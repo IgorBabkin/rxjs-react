@@ -1,4 +1,4 @@
-import {ComponentClass, FunctionComponent} from 'react';
+import {FunctionComponent} from 'react';
 import {Observable} from 'rxjs';
 
 type Omit<T, K> = Pick<T, Exclude<keyof T, K>>;
@@ -24,4 +24,4 @@ export type IDictionary<T> = {
 
 export type Unsubscribe = () => void;
 
-export type IView<T> = ComponentClass<{ model: T }>;
+export type IView<T> = FunctionComponent<{ model: T }>;

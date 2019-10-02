@@ -1,6 +1,6 @@
-import { IAppViewModel } from './IAppViewModel';
+import {IAppViewModel} from './IAppViewModel';
 import React from 'react';
-import { IView, observer } from '../src';
+import {IView, observer} from '../src';
 import './app.scss';
 
 export const AppView: IView<IAppViewModel> = observer(
@@ -12,7 +12,7 @@ export const AppView: IView<IAppViewModel> = observer(
                 <div>{model.version}</div>
                 <div>{model.size}</div>
                 <input
-                    value={model.firstname}
+                    defaultValue={model.firstname}
                     onChange={({target}) => model.changeFirstname(target.value)}
                 />
                 <button onClick={() => model.incrementSize()}>Change size</button>
