@@ -1,5 +1,5 @@
-import { FunctionComponent } from 'react';
-import { Observable } from 'rxjs';
+import {FunctionComponent} from 'react';
+import {Observable} from 'rxjs';
 
 type Omit<T, K> = Pick<T, Exclude<keyof T, K>>;
 
