@@ -31,7 +31,6 @@ export class TestViewModel {
 
     @property
     public get size(): number {
-        console.log('hey');
         return this.s();
     }
 }

@@ -32,7 +32,6 @@ export class AppViewModel implements IAppViewModel {
 
     @property
     public get size(): number {
-        console.log('hey');
         return this.s();
     }
 }
