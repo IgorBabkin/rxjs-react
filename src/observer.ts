@@ -1,6 +1,18 @@
-import React, {FunctionComponent, useEffect, useState} from 'react';
+import React, {FunctionComponent, useEffect, useMemo, useState} from 'react';
 import {IView, UnObservable} from './core.interface';
 import {subscribeToModel} from './subscribeToModel';
+
+const once = (fn: () => void) => {
+    let flag = false;
+    return () => {
+        if (flag) {
+            return;
+        }
+
+        fn();
+        flag = true;
+    };
+};
 
 export const observer = <T>(WrappedComponent: FunctionComponent<{ model: UnObservable<T> }>): IView<T> => {
     return (props) => {
@@ -8,8 +20,12 @@ export const observer = <T>(WrappedComponent: FunctionComponent<{ model: UnObser
         const [isReady, setReady] = useState<boolean>(false);
 
         useEffect(() => {
-            const subscriptions = [subscribeToModel(props.model, (state) => setModelValues(state))];
-            setReady(true);
+            const subscriptions = [subscribeToModel(props.model, (state) => {
+                setModelValues(state);
+                if (!isReady) {
+                    setReady(true);
+                }
+            })];
             return () => subscriptions.forEach((u) => u());
         }, []);
 

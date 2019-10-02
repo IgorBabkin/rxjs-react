@@ -1,12 +1,8 @@
-import { Observable } from 'rxjs';
+import {Observable} from 'rxjs';
+import {IOfferViewModel} from './IOfferViewModel';
 
 export interface IAppViewModel {
-    firstname: Observable<string>;
-    lastname: Observable<string>;
-    fullname: Observable<string>;
-    years: Observable<number>;
-    version: number;
-    size: number;
-    changeFirstname(value: string): void;
-    incrementSize(): void;
+    time: Observable<number>;
+
+    offers: Observable<IOfferViewModel[]>;
 }

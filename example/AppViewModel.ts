@@ -1,37 +1,26 @@
-import { action, observable, property } from '../src';
-import { BehaviorSubject, combineLatest, Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
-import { IAppViewModel } from './IAppViewModel';
+import {observable} from '../src';
+import {BehaviorSubject, Observable, timer} from 'rxjs';
+import {map} from 'rxjs/operators';
+import {IAppViewModel} from './IAppViewModel';
+import {IOfferViewModel} from './IOfferViewModel';
 
 export class AppViewModel implements IAppViewModel {
-    @observable public firstname = new BehaviorSubject('Igor');
-    @observable public lastname = new BehaviorSubject('Babkin');
-    @observable public years = new BehaviorSubject(31);
-    @property public version: number = 1;
+    @observable public offers = new BehaviorSubject<IOfferViewModel[]>([
+        {
+            id: '1',
+        },
+        {
+            id: '2',
+        },
+        {
+            id: '3',
+        },
+    ]);
 
     @observable
-    public get fullname(): Observable<string> {
-        return combineLatest(this.firstname, this.lastname).pipe(
-            map(([firstname, lastname]) => `${firstname} ${lastname}`),
+    public get time(): Observable<number> {
+        return timer(0, 3000).pipe(
+            map(() => Date.now()),
         );
-    }
-
-    @action
-    public changeFirstname(value: string): void {
-        this.firstname.next(value);
-    }
-
-    @action
-    public incrementSize(): void {
-        this.years.next(this.years.getValue() + 1);
-    }
-
-    public s(): number {
-        return 33;
-    }
-
-    @property
-    public get size(): number {
-        return this.s();
     }
 }

@@ -4,18 +4,15 @@ import {IView, observer} from '../src';
 import './app.scss';
 
 export const AppView: IView<IAppViewModel> = observer(
-    ({ model }) => {
+    ({model}) => {
         return (
             <div className='app'>
-                <div>{model.fullname}</div>
-                <div>{model.years}</div>
-                <div>{model.version}</div>
-                <div>{model.size}</div>
-                <input
-                    defaultValue={model.firstname}
-                    onChange={({target}) => model.changeFirstname(target.value)}
-                />
-                <button onClick={() => model.incrementSize()}>Change size</button>
+                <div>{model.time}</div>
+                <div>
+                    {model.offers.map((item) => (
+                        <div key={item.id}>{item.id}</div>
+                    ))}
+                </div>
             </div>
         );
     },
