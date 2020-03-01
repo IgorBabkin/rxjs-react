@@ -1,26 +1,19 @@
-import {observable} from '../src';
 import {BehaviorSubject, Observable, timer} from 'rxjs';
 import {map} from 'rxjs/operators';
 import {IAppViewModel} from './IAppViewModel';
-import {IOfferViewModel} from './IOfferViewModel';
 
 export class AppViewModel implements IAppViewModel {
-    @observable public offers = new BehaviorSubject<IOfferViewModel[]>([
-        {
-            id: '1',
-        },
-        {
-            id: '2',
-        },
-        {
-            id: '3',
-        },
-    ]);
+    public time: Observable<number>;
+    public canShowTime: BehaviorSubject<boolean>;
 
-    @observable
-    public get time(): Observable<number> {
-        return timer(0, 3000).pipe(
+    constructor() {
+        this.time = timer(0, 1000).pipe(
             map(() => Date.now()),
         );
+        this.canShowTime = new BehaviorSubject(false);
+    }
+
+    public toggle(): void {
+        this.canShowTime.next(!this.canShowTime.getValue());
     }
 }

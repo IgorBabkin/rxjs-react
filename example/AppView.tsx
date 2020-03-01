@@ -1,19 +1,17 @@
 import {IAppViewModel} from './IAppViewModel';
-import React from 'react';
-import {IView, observer} from '../src';
+import React, {FunctionComponent} from 'react';
+import {useObservableValue} from '../src';
 import './app.scss';
 
-export const AppView: IView<IAppViewModel> = observer(
-    ({model}) => {
-        return (
-            <div className='app'>
-                <div>{model.time}</div>
-                <div>
-                    {model.offers.map((item) => (
-                        <div key={item.id}>{item.id}</div>
-                    ))}
-                </div>
-            </div>
-        );
-    },
-);
+export const AppView: FunctionComponent<{ model: IAppViewModel }> = ({model}) => {
+    const getValue = useObservableValue();
+    console.log('render');
+    return (
+        <div className='app'>
+            <button onClick={() => model.toggle()}>Toggle</button>
+            {getValue(model.canShowTime) && (
+                <div>{new Date(getValue(model.time) || 0).toUTCString()}</div>
+            )}
+        </div>
+    );
+};

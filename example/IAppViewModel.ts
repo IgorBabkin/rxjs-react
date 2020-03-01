@@ -1,8 +1,8 @@
 import {Observable} from 'rxjs';
-import {IOfferViewModel} from './IOfferViewModel';
 
 export interface IAppViewModel {
+    canShowTime: Observable<boolean>;
     time: Observable<number>;
 
-    offers: Observable<IOfferViewModel[]>;
+    toggle(): void;
 }
