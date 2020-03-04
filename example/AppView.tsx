@@ -1,7 +1,6 @@
 import {IAppViewModel} from './IAppViewModel';
 import React, {FunctionComponent} from 'react';
 import {useObservableValue} from '../src';
-import './app.scss';
 
 export const AppView: FunctionComponent<{ model: IAppViewModel }> = ({model}) => {
     const getValue = useObservableValue();

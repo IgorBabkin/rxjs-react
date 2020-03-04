@@ -1,6 +1,5 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HotModuleReplacementPlugin = require('webpack').HotModuleReplacementPlugin;
 const ProgressPlugin = require('webpack').ProgressPlugin;
 const WebpackNotifierPlugin = require('webpack-notifier');
@@ -40,25 +39,6 @@ module.exports = {
                 exclude: /node_modules/,
                 loader: "awesome-typescript-loader"
             },
-            {
-                test: /\.(css|scss)$/,
-                use: [{
-                    loader: "style-loader"
-                }, {
-                    loader: "css-loader"
-                }, {
-                    loader: "sass-loader"
-                }]
-            },
-            {
-                test: /\.(jpg|png|svg)$/,
-                use: {
-                    loader: "url-loader",
-                    options: {
-                        limit: 25000,
-                    },
-                },
-            }
         ]
     },
 
@@ -66,15 +46,8 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: './index.html.ejs',
             inject: 'body',
-            favicon: './assets/favicon.jpeg'
         }),
         new HotModuleReplacementPlugin(),
-        new CopyWebpackPlugin([
-            {
-                from: './assets',
-                to: '../'
-            }
-        ]),
         new WebpackNotifierPlugin(),
         new ProgressPlugin()
     ],
