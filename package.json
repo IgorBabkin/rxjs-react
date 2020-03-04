@@ -1,12 +1,20 @@
 {
   "name": "reactivex-react",
   "version": "0.0.10",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "commonjs/index.js",
+  "module": "esm/index.js",
+  "sideEffects": false,
+  "types": "commonjs/index.d.ts",
   "license": "MIT",
+  "files": [
+    "commonjs/**/*",
+    "esm/**/*"
+  ],
   "scripts": {
     "start": "webpack-dev-server --config ./example/webpack.config.js",
-    "build": "gulp build",
+    "build": "npm-run-all -p build:commonjs build:esm",
+    "build:commonjs": "rimraf commonjs && tsc -p tsconfig.build.json -m commonjs -d true --outDir commonjs",
+    "build:esm": "rimraf esm && tsc -p tsconfig.build.json -m es6 --outDir esm",
     "lint": "tslint -c tslint.json src/**/*.{ts,tsx}",
     "release": "standard-version",
     "deploy": "yarn release -- && npm publish --access publish"
@@ -15,8 +23,11 @@
     "@types/react": "^16.8.19",
     "@types/react-dom": "^16.8.4",
     "@types/webpack-env": "^1.13.6",
+    "react-dom": "^16.8.6",
     "awesome-typescript-loader": "^5.2.1",
     "html-webpack-plugin": "^3.2.0",
+    "npm-run-all": "^4.1.5",
+    "rimraf": "^3.0.2",
     "standard-version": "^7.0.0",
     "tslint": "^5.18.0",
     "tslint-react": "^4.0.0",
@@ -28,7 +39,6 @@
   },
   "dependencies": {
     "react": "^16.8.6",
-    "react-dom": "^16.8.6",
     "rxjs": "^6.5.3"
   }
 }

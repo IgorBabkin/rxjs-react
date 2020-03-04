@@ -1,13 +1,16 @@
-import {Observable, Subscription} from "rxjs";
-import {useEffect, useMemo, useState} from "react";
+import {Observable, Subscription} from 'rxjs';
+import {useEffect, useMemo, useState} from 'react';
 
 type GetValue = <O>(value: Observable<O>) => O;
-type Provider<T> = { values: T }
+type Provider<T> = { values: T };
 
 export const useObservableValue = (): GetValue => {
     const newObs: Provider<Array<Observable<any>>> = useMemo(() => ({values: []}), []);
     const subscriptions = useMemo(() => new Map<any, Subscription>(), []);
-    const unsubscribe = useMemo(() => () => Array.from(subscriptions.values()).forEach(s => s.unsubscribe()), [subscriptions]);
+    const unsubscribe = useMemo(
+        () => () => Array.from(subscriptions.values()).forEach(s => s.unsubscribe()),
+        [subscriptions],
+    );
     const [[values], setValue] = useState([new Map()]);
     useEffect(() => unsubscribe, []);
     useEffect(() => {

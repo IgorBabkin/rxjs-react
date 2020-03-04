@@ -10,9 +10,7 @@
     "target": "es5",
     "jsx": "react",
     "baseUrl": "src",
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "experimentalDecorators": true
+    "esModuleInterop": true
   },
   "exclude": [
     "node_modules"
