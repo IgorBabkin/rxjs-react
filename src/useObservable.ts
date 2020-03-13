@@ -1,10 +1,12 @@
 import {Observable, Subscription} from 'rxjs';
 import {useEffect, useMemo, useState} from 'react';
+import {entityProvider} from "./entityProvider";
 
 type GetValue = <O>(value: Observable<O>) => O;
 type Provider<T> = { values: T };
 
 export const useObservableValue = (): GetValue => {
+    const isInitialized = useMemo(() => entityProvider(false), []);
     const newObs: Provider<Array<Observable<any>>> = useMemo(() => ({values: []}), []);
     const subscriptions = useMemo(() => new Map<any, Subscription>(), []);
     const unsubscribe = useMemo(
@@ -25,10 +27,13 @@ export const useObservableValue = (): GetValue => {
         if (!subscriptions.has(obs$)) {
             subscriptions.set(obs$, obs$.subscribe((v) => {
                 values.set(obs$, v);
-                setValue([values]);
+                if (isInitialized.get()) {
+                    setValue([values]);
+                }
             }));
         }
 
+        isInitialized.set(true);
         newObs.values.push(obs$);
 
         return values.get(obs$);

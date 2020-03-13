@@ -7,7 +7,7 @@ export class AppViewModel implements IAppViewModel {
     public canShowTime: BehaviorSubject<boolean>;
 
     constructor() {
-        this.time = timer(0, 1000).pipe(
+        this.time = timer(5000, 1000).pipe(
             map(() => Date.now()),
         );
         this.canShowTime = new BehaviorSubject(false);
