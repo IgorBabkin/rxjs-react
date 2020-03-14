@@ -4,7 +4,7 @@ export class ObservableAdapter<T> {
     public current: T;
     private obs$: Observable<T>;
     private subscriptions: Subscription[];
-    private isSubscribed: boolean;
+    public isSubscribed: boolean;
 
     constructor(obs$: Observable<T>) {
         this.obs$ = obs$;
