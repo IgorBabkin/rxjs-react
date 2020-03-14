@@ -1,41 +1,35 @@
-import {Observable, Subscription} from 'rxjs';
-import {useEffect, useMemo, useState} from 'react';
-import {entityProvider} from "./entityProvider";
+import {Observable} from 'rxjs';
+import {useCallback, useEffect, useMemo, useState} from 'react';
+import {EntityProvider, entityProvider} from "./entityProvider";
+import {ObservableAdapter} from "./ObservableAdapter";
 
 type GetValue = <O>(value: Observable<O>) => O;
-type Provider<T> = { values: T };
+
+const useForceUpdate = () => {
+    const [, updateState] = useState();
+    return useCallback(() => updateState({}), []);
+};
 
 export const useObservableValue = (): GetValue => {
-    const isInitialized = useMemo(() => entityProvider(false), []);
-    const newObs: Provider<Array<Observable<any>>> = useMemo(() => ({values: []}), []);
-    const subscriptions = useMemo(() => new Map<any, Subscription>(), []);
-    const unsubscribe = useMemo(
-        () => () => Array.from(subscriptions.values()).forEach(s => s.unsubscribe()),
-        [subscriptions],
-    );
-    const [[values], setValue] = useState([new Map()]);
-    useEffect(() => unsubscribe, []);
+    const newObs: EntityProvider<Array<Observable<any>>> = useMemo(() => entityProvider([]), []);
+    const observables = useMemo<Map<Observable<any>, ObservableAdapter<any>>>(() => new Map(), []);
+    const forceUpdate = useForceUpdate();
+    useEffect(() => () => Array.from(observables.values()).forEach(s => s.unsubscribe()), [observables]);
     useEffect(() => {
-        const toUnsubscribe = Array.from(subscriptions.keys()).filter((k) => !newObs.values.includes(k));
+        const toUnsubscribe = Array.from(observables.keys()).filter((k) => !newObs.get().includes(k));
         toUnsubscribe.forEach((u) => {
-            subscriptions.get(u).unsubscribe();
-            subscriptions.delete(u);
+            observables.get(u).unsubscribe();
+            observables.delete(u);
         });
-        newObs.values = [];
+        newObs.set([]);
     });
     return useMemo(() => <T>(obs$: Observable<T>) => {
-        if (!subscriptions.has(obs$)) {
-            subscriptions.set(obs$, obs$.subscribe((v) => {
-                values.set(obs$, v);
-                if (isInitialized.get()) {
-                    setValue([values]);
-                }
-            }));
+        newObs.get().push(obs$);
+        if (!observables.has(obs$)) {
+            const adapter = new ObservableAdapter(obs$);
+            observables.set(obs$, adapter);
+            adapter.subscribe(forceUpdate);
         }
-
-        isInitialized.set(true);
-        newObs.values.push(obs$);
-
-        return values.get(obs$);
-    }, []);
+        return observables.get(obs$).current;
+    }, [observables]);
 };
