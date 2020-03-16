@@ -5,7 +5,7 @@ export interface IAppViewModel {
     firstName: Observable<string>;
     canShowTime: Observable<boolean>;
     time: Observable<number>;
-    lala: Observable<number>;
+    myNumbers: Observable<number>;
 
     toggle(): void;
 
