@@ -28,3 +28,5 @@ render(
     document.getElementById('root'),
 );
 ```
+
+[See example](https://github.com/IgorBabkin/rxjs-react/blob/master/example/AppView.tsx)
