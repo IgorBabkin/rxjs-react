@@ -21,10 +21,10 @@ const Counter = (props) => {
   return (
     <div>Current time: {getValue(props.currentTime)}</div>
   );
-}
+};
 
 render(
-  <Counter currentTime={currentTime$} />
-  document.getElementById('root'),
-)
+    <Counter currentTime={currentTime$}/>,
+    document.getElementById('root'),
+);
 ```
