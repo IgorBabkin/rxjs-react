@@ -35,9 +35,7 @@
     "webpack": "^4.42.1",
     "webpack-cli": "^3.3.3",
     "webpack-dev-server": "^3.7.1",
-    "webpack-notifier": "^1.7.0"
-  },
-  "dependencies": {
+    "webpack-notifier": "^1.7.0",
     "react": "^16.13.1",
     "rxjs": "^6.5.5"
   }
