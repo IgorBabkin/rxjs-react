@@ -11,7 +11,9 @@
     "rxjs-react",
     "reactivex",
     "reactive",
-    "reactivex-react"
+    "reactivex-react",
+    "hooks",
+    "react-hooks"
   ],
   "license": "MIT",
   "files": [
