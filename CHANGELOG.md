@@ -1,3 +1,10 @@
+## [0.1.18](https://github.com/IgorBabkin/rxjs-react/compare/v0.1.17...v0.1.18) (2020-04-12)
+
+
+### Bug Fixes
+
+* **readme:** update readme ([2919c59](https://github.com/IgorBabkin/rxjs-react/commit/2919c59887d6b4c18f2a6d68bdb1c3267bcdf1b5))
+
 ## [0.1.17](https://github.com/IgorBabkin/rxjs-react/compare/v0.1.16...v0.1.17) (2020-04-12)
 
 
