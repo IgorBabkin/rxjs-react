@@ -8,12 +8,8 @@
   "keywords": [
     "rxjs",
     "react",
-    "rxjs-react",
-    "reactivex",
-    "reactive",
-    "reactivex-react",
     "hooks",
-    "react-hooks"
+    "reactivex"
   ],
   "license": "MIT",
   "files": [
