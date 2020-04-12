@@ -1,4 +1,4 @@
-# React hooks to observe values from rxjs Observable.
+# React hooks to observe values from RxJs Observable.
 
 [![Build Status](https://travis-ci.com/IgorBabkin/rxjs-react.svg?branch=master)](https://travis-ci.com/IgorBabkin/rxjs-react)
 [![NPM version:latest](https://img.shields.io/npm/v/reactivex-react/latest.svg?style=flat-square)](https://www.npmjs.com/package/reactivex-react)
