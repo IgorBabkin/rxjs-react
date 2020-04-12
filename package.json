@@ -57,7 +57,11 @@
     "type": "git",
     "url": "https://github.com/IgorBabkin/rxjs-react.git"
   },
-  "author": "igorbabkin <igba14@gmail.com>",
+  "author": {
+    "name": "Igor Babkin",
+    "email": "igba14@gmail.com"
+  },
+  "homepage": "https://github.com/IgorBabkin/rxjs-react#readme",
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
