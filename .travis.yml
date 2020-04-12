@@ -11,8 +11,8 @@ cache:
   directories:
     - "$HOME/.npm"
 script:
-  - npm run lint
-  - npm run build
+  - yarn lint
+  - yarn build
 
 after_success:
   - npm run semantic-release
