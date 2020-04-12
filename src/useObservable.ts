@@ -1,11 +1,11 @@
 import {Observable} from 'rxjs';
 import {useCallback, useEffect, useMemo, useState} from 'react';
-import {EntityProvider, entityProvider} from "./entityProvider";
-import {ObservableAdapter} from "./ObservableAdapter";
+import {EntityProvider, entityProvider} from './entityProvider';
+import {ObservableAdapter} from './ObservableAdapter';
 
 type GetValue = <O>(value: Observable<O>) => O;
 type ObservableMap = Map<Observable<any>, ObservableAdapter<any>>;
-type ObservableProvider = EntityProvider<Array<Observable<any>>>;
+type ObservableProvider = EntityProvider<Observable<any>[]>;
 
 const useForceUpdate = () => {
     const [, updateState] = useState();

@@ -1,4 +1,4 @@
-import {Observable, Subscription} from "rxjs";
+import {Observable, Subscription} from 'rxjs';
 
 export class ObservableAdapter<T> {
     public current: T;
