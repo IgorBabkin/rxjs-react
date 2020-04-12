@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.com/IgorBabkin/rxjs-react.svg?branch=master)](https://travis-ci.com/IgorBabkin/rxjs-react)
 [![NPM version:latest](https://img.shields.io/npm/v/reactivex-react/latest.svg?style=flat-square)](https://www.npmjs.com/package/reactivex-react)
 [![npm downloads](https://img.shields.io/npm/dt/reactivex-react.svg?style=flat-square)](https://www.npmjs.com/package/reactivex-react)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
