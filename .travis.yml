@@ -6,7 +6,7 @@ sudo: false
 git:
   depth: 1
 install:
-  - npm ci
+  - yarn install
 cache:
   directories:
     - "$HOME/.npm"
