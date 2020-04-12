@@ -1,4 +1,4 @@
-# ReactiveX-React: React hooks to observe values from rxjs Observable.
+# React hooks to observe values from rxjs Observable.
 
 [![Build Status](https://travis-ci.com/IgorBabkin/rxjs-react.svg?branch=master)](https://travis-ci.com/IgorBabkin/rxjs-react)
 [![NPM version:latest](https://img.shields.io/npm/v/reactivex-react/latest.svg?style=flat-square)](https://www.npmjs.com/package/reactivex-react)
@@ -24,6 +24,8 @@ yarn add reactivex-react
 ### Usage
 
 ```jsx
+import {useObservableValue} from 'reactivex-react';
+
 const currentTime$ = timer(0, 1000).pipe(
     map(() => Date.now()),
 );
@@ -40,5 +42,9 @@ render(
     document.getElementById('root'),
 );
 ```
+
+### API
+
+`useObservableValue` - creates reader which needs to get current value and subscribes to observable.
 
 [See example](https://github.com/IgorBabkin/rxjs-react/blob/master/example/AppView.tsx)
