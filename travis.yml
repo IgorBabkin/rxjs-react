@@ -1,0 +1,18 @@
+language: node_js
+node_js:
+#  - stable
+  - "12"
+sudo: false
+git:
+  depth: 1
+install:
+  - npm ci
+cache:
+  directories:
+    - "$HOME/.npm"
+script:
+  - npm run lint
+  - npm run build
+
+after_success:
+  - npm run semantic-release
