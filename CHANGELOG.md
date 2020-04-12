@@ -1,3 +1,10 @@
+## [0.1.16](https://github.com/IgorBabkin/rxjs-react/compare/v0.1.15...v0.1.16) (2020-04-12)
+
+
+### Bug Fixes
+
+* **keywords:** update keywords ([ece1765](https://github.com/IgorBabkin/rxjs-react/commit/ece1765ddc797c97c3b1001165063043fa8dc850))
+
 ## [0.1.15](https://github.com/IgorBabkin/rxjs-react/compare/v0.1.14...v0.1.15) (2020-04-12)
 
 
