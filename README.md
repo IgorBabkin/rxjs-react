@@ -1,14 +1,13 @@
+# ReactiveX-React: React hooks to observe values from rxjs Observable.
+
 [![Build Status](https://travis-ci.com/IgorBabkin/rxjs-react.svg?branch=master)](https://travis-ci.com/IgorBabkin/rxjs-react)
 [![NPM version:latest](https://img.shields.io/npm/v/reactivex-react/latest.svg?style=flat-square)](https://www.npmjs.com/package/reactivex-react)
 [![npm downloads](https://img.shields.io/npm/dt/reactivex-react.svg?style=flat-square)](https://www.npmjs.com/package/reactivex-react)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
 [![npm bundle size (minified + gzip)](https://img.shields.io/bundlephobia/minzip/reactivex-react.svg)](https://www.npmjs.com/package/reactivex-react)
-
 [![License](https://img.shields.io/npm/l/reactivex-react)](https://www.npmjs.com/package/reactivex-react)
 
-# RxjsReact
-React hooks to observe values from rxjs Observable.
 - lazy - it doesn't subscribe until you invoke it
 - unsubscribe automatically from not used values
 - unsubscribe automatically when component is unmounted
