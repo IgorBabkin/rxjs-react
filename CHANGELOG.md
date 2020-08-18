@@ -1,3 +1,10 @@
+# [0.2.0](https://github.com/IgorBabkin/rxjs-react/compare/v0.1.18...v0.2.0) (2020-08-18)
+
+
+### Features
+
+* add distinctUntilChanged ([cba3a8f](https://github.com/IgorBabkin/rxjs-react/commit/cba3a8fa50caeb6b7f82a4784b585e0efb8aa778))
+
 ## [0.1.18](https://github.com/IgorBabkin/rxjs-react/compare/v0.1.17...v0.1.18) (2020-04-12)
 
 

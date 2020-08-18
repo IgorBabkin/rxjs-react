@@ -1,6 +1,6 @@
 {
   "name": "reactivex-react",
-  "version": "0.1.18",
+  "version": "0.2.0",
   "main": "commonjs/index.js",
   "module": "esm/index.js",
   "sideEffects": false,
