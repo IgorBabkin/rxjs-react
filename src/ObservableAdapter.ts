@@ -1,4 +1,5 @@
 import {Observable, Subscription} from 'rxjs';
+import {distinctUntilChanged} from 'rxjs/operators';
 
 export class ObservableAdapter<T> {
     public current: T;
@@ -15,7 +16,7 @@ export class ObservableAdapter<T> {
             return;
         }
         this.subscriptions = [
-            this.obs$.subscribe((v) => {
+            this.obs$.pipe(distinctUntilChanged()).subscribe((v) => {
                 this.current = v;
                 if (this.isSubscribed) {
                     onNext(v);
