@@ -45,7 +45,7 @@
     "react-dom": "^16.13.1",
     "rimraf": "^3.0.2",
     "rxjs": "^6.5.5",
-    "semantic-release": "^17.0.4",
+    "semantic-release": "^17.2.3",
     "tslint": "^6.1.1",
     "tslint-react": "^4.0.0",
     "typescript": "^3.5.3",
